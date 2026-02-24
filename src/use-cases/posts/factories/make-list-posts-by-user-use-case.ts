@@ -1,6 +1,6 @@
 import { PrismaPostsRepository } from "@/repositories/prisma/prisma-posts-repository.js";
 import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-repository.js";
-import { ListPostsByUserUseCase } from "../posts/list-posts-by-user.js";
+import { ListPostsByUserUseCase } from "../list-posts-by-user.js";
 
 export function makeListPostsByUserUseCase() {
   const usersRepository = new PrismaUsersRepository();
