@@ -1,6 +1,6 @@
 import type { FastifyRequest, FastifyReply } from "fastify";
 import { UserPresenter } from "@/http/presenters/user-presenter.js";
-import { makeGetUserUseCase } from "@/use-cases/factories/make-get-user-use-case.js";
+import { makeGetUserUseCase } from "@/use-cases/users/factories/make-get-user-use-case.js";
 import z from "zod";
 import { ResourceNotFoundError } from "@/use-cases/errors/resource-not-found-error.js";
 

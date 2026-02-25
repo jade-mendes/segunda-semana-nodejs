@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { FastifyRequest, FastifyReply } from "fastify";
-import { makeCreatePostUseCase } from "@/use-cases/factories/make-create-post-use-case.js";
+import { makeCreatePostUseCase } from "@/use-cases/posts/factories/make-create-post-use-case.js";
 
 export async function createPost(request: FastifyRequest, reply: FastifyReply) {
   try {

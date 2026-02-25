@@ -8,7 +8,7 @@ import {
 } from "@/constants/validation-constants.js";
 import { UserPresenter } from "@/http/presenters/user-presenter.js";
 import { UserAlreadyExsistsError } from "@/use-cases/errors/user-already-exists-error.js";
-import { makeCreateUserUseCase } from "@/use-cases/factories/make-create-user-use-case.js";
+import { makeCreateUserUseCase } from "@/use-cases/users/factories/make-create-user-use-case.js";
 
 export async function createUser(request: FastifyRequest, reply: FastifyReply) {
   try {

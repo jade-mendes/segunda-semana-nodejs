@@ -1,6 +1,6 @@
 import { PostPresenter } from "@/http/presenters/post-presenter.js";
 import { ResourceNotFoundError } from "@/use-cases/errors/resource-not-found-error.js";
-import { makeListPostsByUserUseCase } from "@/use-cases/factories/make-list-posts-by-user-use-case.js";
+import { makeListPostsByUserUseCase } from "@/use-cases/posts/factories/make-list-posts-by-user-use-case.js";
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 

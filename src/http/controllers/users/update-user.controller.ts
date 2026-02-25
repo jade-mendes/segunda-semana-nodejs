@@ -2,7 +2,7 @@ import type { FastifyRequest, FastifyReply } from "fastify";
 import { UserPresenter } from "@/http/presenters/user-presenter.js";
 import z from "zod";
 import { ResourceNotFoundError } from "@/use-cases/errors/resource-not-found-error.js";
-import { makeUpdateUserUseCase } from "@/use-cases/factories/make-update-user-use-case.js";
+import { makeUpdateUserUseCase } from "@/use-cases/users/factories/make-update-user-use-case.js";
 import {
   MAX_USERNAME_SIZE,
   MIN_USERNAME_SIZE,
