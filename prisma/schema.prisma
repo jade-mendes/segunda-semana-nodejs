@@ -52,12 +52,14 @@ model Post {
 
 model Comment {
   id        Int      @id @default(autoincrement())
+  publicId  String    @unique @default(uuid(7)) @map("public_id")
   content   String
   userId    Int      @map("user_id")
   postId    Int      @map("post_id")
   user      User     @relation(fields: [userId], references: [id])
   post      Post     @relation(fields: [postId], references: [id])
   createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at")
   likes     Like[]
 
   @@map("comments")
@@ -65,6 +67,7 @@ model Comment {
 
 model Like {
   id        Int      @id @default(autoincrement())
+  publicId  String    @unique @default(uuid(7)) @map("public_id")
   createdAt DateTime @default(now()) @map("created_at")
   commentId Int      @map("comment_id")
   comment   Comment  @relation(fields: [commentId], references: [id])
