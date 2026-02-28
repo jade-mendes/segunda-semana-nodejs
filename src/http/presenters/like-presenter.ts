@@ -6,8 +6,8 @@ type HTTPLike = {
 };
 
 export class LikePresenter {
-  static toHTTP(post: Like): HTTPLike;
-  static toHTTP(posts: Like[]): HTTPLike[];
+  static toHTTP(like: Like): HTTPLike;
+  static toHTTP(likes: Like[]): HTTPLike[];
   static toHTTP(input: Like | Like[]): HTTPLike | HTTPLike[] {
     if (Array.isArray(input)) {
       return input.map((like) => this.toHTTP(like));

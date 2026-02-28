@@ -8,11 +8,11 @@ type HTTPComment = {
 };
 
 export class CommentPresenter {
-  static toHTTP(post: Comment): HTTPComment;
-  static toHTTP(posts: Comment[]): HTTPComment[];
+  static toHTTP(comment: Comment): HTTPComment;
+  static toHTTP(comments: Comment[]): HTTPComment[];
   static toHTTP(input: Comment | Comment[]): HTTPComment | HTTPComment[] {
     if (Array.isArray(input)) {
-      return input.map((post) => this.toHTTP(post));
+      return input.map((comment) => this.toHTTP(comment));
     }
 
     return {
