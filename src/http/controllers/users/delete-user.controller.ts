@@ -15,7 +15,7 @@ export async function deleteUser(request: FastifyRequest, reply: FastifyReply) {
     await deleteUserUseCase.execute({
       publicId,
     });
-    return reply.status(200).send();
+    return reply.status(200).send({ message: "Usuário apagado com sucesso!" });
   } catch (error) {
     if (error instanceof ResourceNotFoundError) {
       return reply.status(404).send({ message: error.message });
