@@ -1,0 +1,21 @@
+import type { Like } from "@/@types/prisma/client.js";
+
+type HTTPLike = {
+  id: string;
+  createdAt: Date;
+};
+
+export class LikePresenter {
+  static toHTTP(post: Like): HTTPLike;
+  static toHTTP(posts: Like[]): HTTPLike[];
+  static toHTTP(input: Like | Like[]): HTTPLike | HTTPLike[] {
+    if (Array.isArray(input)) {
+      return input.map((like) => this.toHTTP(like));
+    }
+
+    return {
+      id: input.publicId,
+      createdAt: input.createdAt,
+    };
+  }
+}
