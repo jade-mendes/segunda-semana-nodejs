@@ -6,6 +6,7 @@ import { listComments } from "./list-comments.controller.js";
 import { deleteComment } from "./delete-comment.controller.js";
 import { updateComment } from "./update-comment.controller.js";
 import { listCommentsByUser } from "./list-comments-by-user.controller.js";
+import { listCommentsByPost } from "./list-comments-by-post.controller.js";
 
 export async function commentsRoutes(app: FastifyInstance) {
   app.post("/:postPublicId", { onRequest: [verifyJwt] }, createComment);
@@ -14,4 +15,5 @@ export async function commentsRoutes(app: FastifyInstance) {
   app.delete("/:publicId", { onRequest: [verifyJwt] }, deleteComment);
   app.patch("/:publicId", { onRequest: [verifyJwt] }, updateComment);
   app.get("/user/:publicId", listCommentsByUser);
+  app.get("/post/:publicId", listCommentsByPost);
 }

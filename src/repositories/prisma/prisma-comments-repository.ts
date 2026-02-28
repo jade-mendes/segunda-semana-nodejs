@@ -33,4 +33,10 @@ export class PrismaCommentsRepository implements ICommentsRepository {
       where: { userId: id },
     });
   }
+
+  async findByPost(id: number) {
+    return await prisma.comment.findMany({
+      where: { postId: id },
+    });
+  }
 }
