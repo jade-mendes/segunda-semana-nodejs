@@ -12,7 +12,7 @@ export async function deletePost(request: FastifyRequest, reply: FastifyReply) {
     const { publicId } = getParamsSchema.parse(request.params);
     const deletePostUseCase = makeDeletePostUseCase();
     await deletePostUseCase.execute({ publicId });
-    return reply.status(200).send();
+    return reply.status(200).send({message: "Post apagado com sucesso!"});
   } catch (error) {
     if (error instanceof ResourceNotFoundError) {
       return reply.status(404).send({ message: error.message });
