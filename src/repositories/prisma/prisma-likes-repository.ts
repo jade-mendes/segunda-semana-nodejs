@@ -35,4 +35,10 @@ export class PrismaLikesRepository implements ILikesRepository {
       where: { postId: id },
     });
   }
+
+  async findByComment(id: number) {
+    return await prisma.like.findMany({
+      where: { commentId: id },
+    });
+  }
 }
