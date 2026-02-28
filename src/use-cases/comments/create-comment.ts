@@ -1,8 +1,9 @@
 import type { Comment } from "@/@types/prisma/client.js";
 import type { IUsersRepository } from "@/repositories/users-repository.js";
-import { ResourceNotFoundError } from "../errors/resource-not-found-error.js";
 import type { ICommentsRepository } from "@/repositories/comments-repository.js";
 import type { IPostsRepository } from "@/repositories/posts-repository.js";
+import { UserNotFoundError } from "../errors/user-not-found-error.js";
+import { PostNotFoundError } from "../errors/post-not-found-error.js";
 
 interface CreateCommentUseCaseRequest {
   content: string;
@@ -31,7 +32,7 @@ export class CreateCommentUseCase {
       });
 
       if (!user) {
-        throw new ResourceNotFoundError();
+        throw new UserNotFoundError();
       }
 
       const post = await this.postsRepository.findBy({
@@ -39,7 +40,7 @@ export class CreateCommentUseCase {
       });
 
       if (!post) {
-        throw new ResourceNotFoundError();
+        throw new PostNotFoundError();
       }
 
       const comment = await this.commentsRepository.create({

@@ -1,3 +1,4 @@
+import { CommentPresenter } from "@/http/presenters/comment-presenter.js";
 import { makeCreateCommentUseCase } from "@/use-cases/comments/factories/make-create-comment-use-case.js";
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
@@ -24,7 +25,7 @@ export async function createComment(request: FastifyRequest, reply: FastifyReply
       userPublicId,
     });
 
-    return reply.status(200).send(comment);
+    return reply.status(200).send(CommentPresenter.toHTTP(comment));
   } catch (error) {
     throw error;
   }
