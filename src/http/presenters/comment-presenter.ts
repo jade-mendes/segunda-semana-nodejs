@@ -19,7 +19,7 @@ export class CommentPresenter {
       id: input.publicId,
       content: input.content,
       createdAt: input.createdAt,
-      updatedAt: input.updatedAt
+      updatedAt: input.updatedAt,
     };
   }
 }

@@ -46,7 +46,7 @@ export class CreateCommentUseCase {
       const comment = await this.commentsRepository.create({
         content,
         postId: post.id,
-        userId: user.id
+        userId: user.id,
       });
 
       return { comment };

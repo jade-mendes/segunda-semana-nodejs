@@ -20,7 +20,7 @@ export async function createUser(request: FastifyRequest, reply: FastifyReply) {
 
     const { name, email, password } = registerBodySchema.parse(request.body);
 
-    const createUserUseCase = makeCreateUserUseCase()
+    const createUserUseCase = makeCreateUserUseCase();
     const { user } = await createUserUseCase.execute({
       name,
       email,
@@ -30,7 +30,7 @@ export async function createUser(request: FastifyRequest, reply: FastifyReply) {
     return reply.status(201).send(UserPresenter.toHTTP(user));
   } catch (error) {
     if (error instanceof UserAlreadyExsistsError) {
-      return reply.status(409).send({message: error.message})
+      return reply.status(409).send({ message: error.message });
     }
   }
 }

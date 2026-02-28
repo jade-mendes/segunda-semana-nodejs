@@ -2,7 +2,7 @@ import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-reposi
 import { GetUserUseCase } from "../get-user.js";
 
 export function makeGetUserUseCase() {
-    const usersRepository = new PrismaUsersRepository()
-    const getUserUseCase = new GetUserUseCase(usersRepository)
-    return getUserUseCase
+  const usersRepository = new PrismaUsersRepository();
+  const getUserUseCase = new GetUserUseCase(usersRepository);
+  return getUserUseCase;
 }

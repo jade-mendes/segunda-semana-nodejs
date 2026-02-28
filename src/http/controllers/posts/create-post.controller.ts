@@ -3,9 +3,12 @@ import type { FastifyRequest, FastifyReply } from "fastify";
 import { makeCreatePostUseCase } from "@/use-cases/posts/factories/make-create-post-use-case.js";
 import { PostPresenter } from "@/http/presenters/post-presenter.js";
 
-export async function createPostProfile(request: FastifyRequest, reply: FastifyReply) {
+export async function createPostProfile(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
   try {
-    const { sub: userPublicId } = request.user as { sub: string } 
+    const { sub: userPublicId } = request.user as { sub: string };
 
     const createPostBodySchema = z.object({
       title: z.string().trim().min(1).max(100),

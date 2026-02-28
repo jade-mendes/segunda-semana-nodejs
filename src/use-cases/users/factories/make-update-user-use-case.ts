@@ -2,7 +2,7 @@ import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-reposi
 import { UpdateUserUseCase } from "../update-user.js";
 
 export function makeUpdateUserUseCase() {
-    const usersRepository = new PrismaUsersRepository()
-    const updateUserUseCase = new UpdateUserUseCase(usersRepository)
-    return updateUserUseCase
+  const usersRepository = new PrismaUsersRepository();
+  const updateUserUseCase = new UpdateUserUseCase(usersRepository);
+  return updateUserUseCase;
 }

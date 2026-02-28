@@ -2,7 +2,7 @@ import { PrismaPostsRepository } from "@/repositories/prisma/prisma-posts-reposi
 import { ListPostsUseCase } from "../list-posts.js";
 
 export function makeListPostsUseCase() {
-    const postsRepository = new PrismaPostsRepository()
-    const listPostsUseCase = new ListPostsUseCase(postsRepository)
-    return listPostsUseCase
+  const postsRepository = new PrismaPostsRepository();
+  const listPostsUseCase = new ListPostsUseCase(postsRepository);
+  return listPostsUseCase;
 }

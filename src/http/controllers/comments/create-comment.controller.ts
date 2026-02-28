@@ -3,12 +3,15 @@ import { makeCreateCommentUseCase } from "@/use-cases/comments/factories/make-cr
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 
-export async function createComment(request: FastifyRequest, reply: FastifyReply) {
+export async function createComment(
+  request: FastifyRequest,
+  reply: FastifyReply,
+) {
   try {
-    const { sub: userPublicId } = request.user as { sub: string } 
+    const { sub: userPublicId } = request.user as { sub: string };
     const createCommentParamsSchema = z.object({
-          postPublicId: z.uuid(),
-        });
+      postPublicId: z.uuid(),
+    });
     const { postPublicId } = createCommentParamsSchema.parse(request.params);
 
     const createCommentBodySchema = z.object({

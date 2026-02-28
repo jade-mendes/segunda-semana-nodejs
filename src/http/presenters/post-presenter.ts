@@ -21,7 +21,7 @@ export class PostPresenter {
       title: input.title,
       content: input.content,
       createdAt: input.createdAt,
-      updatedAt: input.updatedAt
+      updatedAt: input.updatedAt,
     };
   }
 }

@@ -10,6 +10,6 @@ export async function commentsRoutes(app: FastifyInstance) {
   app.post("/:postPublicId", { onRequest: [verifyJwt] }, createComment);
   app.get("/", listComments);
   app.get("/:publicId", getComment);
-  app.delete("/:publicId", {onRequest: [verifyJwt]}, deleteComment)
-  app.patch("/:publicId", {onRequest: [verifyJwt]}, updateComment)
+  app.delete("/:publicId", { onRequest: [verifyJwt] }, deleteComment);
+  app.patch("/:publicId", { onRequest: [verifyJwt] }, updateComment);
 }

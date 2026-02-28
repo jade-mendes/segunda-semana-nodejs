@@ -24,16 +24,16 @@ export class CreateUserUseCase {
     const userWithSameEmail = await this.usersRepository.findByEmail(email);
 
     if (userWithSameEmail) {
-      throw new UserAlreadyExsistsError()
+      throw new UserAlreadyExsistsError();
     }
 
     const passwordHash = await hash(password, env.HASH_SALT_ROUNDS);
 
     const user = await this.usersRepository.create({
-        name,
-        email,
-        passwordHash
-    })
+      name,
+      email,
+      passwordHash,
+    });
 
     return { user };
   }

@@ -21,12 +21,12 @@ export async function seed() {
 }
 
 seed()
-    .then(() => {
-        prisma.$disconnect()
-        process.exit(0)
-    })
-    .catch((error) => {
-        console.error("Error seeding database:", error)
-        prisma.$disconnect()
-        process.exit(1)
-    })
+  .then(() => {
+    prisma.$disconnect();
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error("Error seeding database:", error);
+    prisma.$disconnect();
+    process.exit(1);
+  });

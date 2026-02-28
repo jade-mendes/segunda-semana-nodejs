@@ -26,9 +26,9 @@ export class UpdatePostUseCase {
     }
 
     const post = await this.postsRepository.update(postToUpdate.id, {
-        title,
-        content
-    })
-    return { post }
+      title,
+      content,
+    });
+    return { post };
   }
 }

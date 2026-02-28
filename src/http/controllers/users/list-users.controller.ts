@@ -15,8 +15,9 @@ export async function listUsers(request: FastifyRequest, reply: FastifyReply) {
 
     const listUsersUseCase = makeListUsersUseCase();
 
-    const { users, totalCount, totalPages, currentPage } = await listUsersUseCase.execute({ name, page, limit });
-    
+    const { users, totalCount, totalPages, currentPage } =
+      await listUsersUseCase.execute({ name, page, limit });
+
     return reply.status(200).send({
       users: UserPresenter.toHTTP(users),
       totalCount,

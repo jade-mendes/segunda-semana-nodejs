@@ -19,16 +19,15 @@ export class UpdateUserUseCase {
     name,
     email,
   }: UpdateUserUseCaseRequest): Promise<UpdateUserUseCaseResponse> {
-    const userToUpdate = await this.usersRepository.findBy({ publicId })
+    const userToUpdate = await this.usersRepository.findBy({ publicId });
     if (!userToUpdate) {
-        throw new ResourceNotFoundError()
+      throw new ResourceNotFoundError();
     }
 
     const user = await this.usersRepository.update(userToUpdate.id, {
-        name,
-        email,
-
-    })
-    return { user }
+      name,
+      email,
+    });
+    return { user };
   }
 }

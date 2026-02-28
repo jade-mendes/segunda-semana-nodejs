@@ -13,6 +13,6 @@ export class DeleteUserUseCase {
       throw new ResourceNotFoundError();
     }
 
-    await this.usersRepository.delete(user.id)
+    await this.usersRepository.delete(user.id);
   }
 }

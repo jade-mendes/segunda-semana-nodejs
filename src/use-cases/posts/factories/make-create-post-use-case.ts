@@ -10,5 +10,5 @@ export function makeCreatePostUseCase() {
     postsRepository,
     usersRepository,
   );
-  return createPostUseCase
+  return createPostUseCase;
 }

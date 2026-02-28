@@ -17,11 +17,11 @@ export class UserPresenter {
     }
 
     return {
-        id: input.publicId,
-        name: input.name,
-        email: input.email,
-        createdAt: input.createdAt,
-        updatedAt: input.updatedAt
-    }
+      id: input.publicId,
+      name: input.name,
+      email: input.email,
+      createdAt: input.createdAt,
+      updatedAt: input.updatedAt,
+    };
   }
 }

@@ -2,7 +2,7 @@ import { PrismaUsersRepository } from "@/repositories/prisma/prisma-users-reposi
 import { ListUsersUseCase } from "../list-users.js";
 
 export function makeListUsersUseCase() {
-    const usersRepository = new PrismaUsersRepository()
-    const listUsersUseCase = new ListUsersUseCase(usersRepository)
-    return listUsersUseCase
+  const usersRepository = new PrismaUsersRepository();
+  const listUsersUseCase = new ListUsersUseCase(usersRepository);
+  return listUsersUseCase;
 }

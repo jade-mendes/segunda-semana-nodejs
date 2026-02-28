@@ -39,18 +39,18 @@ export class PrismaUsersRepository implements IUsersRepository {
       where,
       skip,
       take: limit,
-      orderBy: [{createdAt: 'desc'}]
-    })
+      orderBy: [{ createdAt: "desc" }],
+    });
 
-    const totalCount = await prisma.user.count({where})
-    const totalPages = Math.ceil(totalCount / limit)
-    
+    const totalCount = await prisma.user.count({ where });
+    const totalPages = Math.ceil(totalCount / limit);
+
     return {
       data: users,
       totalCount,
       totalPages,
       currentPage: page,
-    }
+    };
   }
 
   async delete(id: number) {

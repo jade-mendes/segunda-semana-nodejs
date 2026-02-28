@@ -10,12 +10,12 @@ export async function listPostsByUser(
 ) {
   try {
     const getParamsSchema = z.object({
-        publicId: z.string()
-    })
-    const { publicId } = getParamsSchema.parse(request.params)
+      publicId: z.string(),
+    });
+    const { publicId } = getParamsSchema.parse(request.params);
     const listPostsByUserUseCase = makeListPostsByUserUseCase();
-    const { posts } = await listPostsByUserUseCase.execute({publicId})
-    return reply.status(200).send(PostPresenter.toHTTP(posts))
+    const { posts } = await listPostsByUserUseCase.execute({ publicId });
+    return reply.status(200).send(PostPresenter.toHTTP(posts));
   } catch (error) {
     if (error instanceof ResourceNotFoundError) {
       return reply.status(404).send({ message: error.message });

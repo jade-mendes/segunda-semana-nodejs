@@ -29,12 +29,12 @@ export async function authenticate(
     const token = await reply.jwtSign(
       {
         sub: user.publicId,
-        role: user.role
+        role: user.role,
       },
       { expiresIn: "1d" },
     );
 
-    return reply.status(200).send({token, user: UserPresenter.toHTTP(user)});
+    return reply.status(200).send({ token, user: UserPresenter.toHTTP(user) });
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
       return reply.status(401).send({ message: error.message });

@@ -13,6 +13,6 @@ export function makeCreateCommentUseCase() {
     postsRepository,
     usersRepository,
   );
-  
+
   return createCommentUseCase;
 }

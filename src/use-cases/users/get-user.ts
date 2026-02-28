@@ -15,10 +15,10 @@ export class GetUserUseCase {
   async execute({
     publicId,
   }: GetUserUseCaseRequest): Promise<GetUserUseCaseResponse> {
-    const user = await this.usersRepository.findBy({ publicId })
+    const user = await this.usersRepository.findBy({ publicId });
     if (!user) {
-        throw new ResourceNotFoundError()
+      throw new ResourceNotFoundError();
     }
-    return { user }
+    return { user };
   }
 }
