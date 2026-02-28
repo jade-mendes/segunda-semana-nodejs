@@ -1,6 +1,32 @@
 import { z } from "zod";
 import type { FastifyRequest, FastifyReply } from "fastify";
 import { makeCreatePostUseCase } from "@/use-cases/posts/factories/make-create-post-use-case.js";
+import { PostPresenter } from "@/http/presenters/post-presenter.js";
+
+export async function createPostProfile(request: FastifyRequest, reply: FastifyReply) {
+  try {
+    const { sub: userPublicId } = request.user as { sub: string } 
+
+    const createPostBodySchema = z.object({
+      title: z.string().trim().min(1).max(100),
+      content: z.string().trim().min(1).max(100),
+    });
+
+    const { title, content } = createPostBodySchema.parse(request.body);
+
+    const createPostUseCase = makeCreatePostUseCase();
+
+    const { post } = await createPostUseCase.execute({
+      title,
+      content,
+      userPublicId,
+    });
+
+    return reply.status(200).send(PostPresenter.toHTTP(post));
+  } catch (error) {
+    throw error;
+  }
+}
 
 export async function createPost(request: FastifyRequest, reply: FastifyReply) {
   try {
@@ -24,7 +50,7 @@ export async function createPost(request: FastifyRequest, reply: FastifyReply) {
       userPublicId,
     });
 
-    return reply.status(200).send(post);
+    return reply.status(200).send(PostPresenter.toHTTP(post));
   } catch (error) {
     throw error;
   }
